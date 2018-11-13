@@ -1,0 +1,10 @@
+;Петренко М.С, ПІ-42, Варіант 4
+;Визначити процедуру МНОЖИНА(Х), яка зі списку Х формує множину, де всі елементи мають одне входження (без повторень). 
+ #lang racket
+ (define (adjoin-set x set)
+   (if (element-of-set? x set)
+     set
+     (cons x set)))
+     
+(define x (list 2 3 5))
+(define y (list 1 2 3 6 7 8 9))
