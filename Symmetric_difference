@@ -1,0 +1,17 @@
+;Oleksandra Pristupa var-17
+
+(define (diff list1 list2)
+  (union (complement list1 list2)
+         (complement list2 list1)))
+         
+(define (union list1 list2)
+  (cond ((null? list1) list2)
+        ((member (car list1) list2) (union (cdr list1) list2))
+        (else (cons (car list1) (union (cdr list1) list2)))))
+
+(define (complement list1 list2)
+  (cond ((null? list1) '())
+        ((member (car list1) list2) (complement (cdr list1) list2))
+        (else (cons (car list1) (complement (cdr list1) list2)))))
+        
+(diff '(1 2 3) '(2 3 4))
