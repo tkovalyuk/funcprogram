@@ -1,0 +1,18 @@
+"9 variant Kordonets Sergey PI-42"
+
+(defun fib (n)
+	(check-type n (integer 0 *))
+		(if (< n 2) n
+			(+ (fib (1- n)) (fib (- n 2)))))
+
+
+
+(defun fibTail (s)
+	(check-type s (integer 0 *)
+		(labels ((fib-aux (s f1 f2)
+			(if (zerop s) f1
+				(fib-aux (1- s) f2 (+ f1 f2)))))
+				(fib-aux s 0 1)))
+
+(print (fib 25))
+(print (fibTail 15))
