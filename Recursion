@@ -1,0 +1,15 @@
+// Курмаз Илья, ПИ-41, Вариант - 9, реализация - F#
+
+Рекурсивная версия
+
+let rec fib = function
+    | n when n < 2 -> 1
+    | n -> fib(n-1) + fib(n-2);;
+
+"Хвостовая рекурсия"
+
+let fib n =
+    let rec tfib n1 n2 = function
+    | 0 -> n1
+    | n -> tfib n2 (n2 + n1) (n - 1)
+    tfib 0 1 n;;  
