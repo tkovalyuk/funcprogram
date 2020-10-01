@@ -1,0 +1,25 @@
+;Карнацький Д.О, ПІ-41, Варіант 7
+;Визначити процедуру ДОДАТНІ_ДОВЖИНА(Х), де Х − список довільної довжини, який складається з цілих чисел, а результат процедури – список двох елементів: кількість додатних чисел у цьому списку та загальна кількість елементів. 
+
+#lang racket
+(define (plusCount items)
+  (if (null? items)
+      (list 0 0)
+      (list (positiveCount items) (length items))))
+
+(define (length items)
+  (if (null? items)
+      0
+      (+ 1 (length (cdr items))))
+  )
+
+(define (positiveCount items)
+      (cond
+         [(null? items) 0]
+         [(> (car items) 0) (+ 1 (positiveCount (cdr items)))]
+         [else (+ 0 (positiveCount (cdr items)))]))
+
+  
+(plusCount (list 1 -2 3 5))
+(plusCount (list 1 2 3 5 6 8))
+(plusCount (list 1 -2 3 -5 -3))
