@@ -1,0 +1,22 @@
+;Мирошников Сергій ПІ-41
+;Варіант 12. Визначити процедуру РІВЕНЬ(Х), яка обертає список і розбиває його на рівні: (a, b, c) = (((c) b) a). 
+
+#lang racket
+(define (level items)
+  (if (null? items)
+      (list 0 0)
+      (list (convertList items))))
+
+(define (length items)
+  (if (null? items)
+      0
+      (+ 1 (length (cdr items))))
+  )
+
+(define (convertList items)
+  (if (= 1 (length items))
+      items
+      (list (convertList (cdr items)) (car items)))
+  )
+
+(level (list 1 2 5 8))
