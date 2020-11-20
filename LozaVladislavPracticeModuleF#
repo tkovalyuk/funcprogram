@@ -1,0 +1,19 @@
+open System
+
+let rec factorial n =
+    match n with
+    | 0 | 1 -> 1
+    | _ -> n * factorial(n-1)
+
+let tailFactorial n =
+    let rec loop i acc =
+        match i with
+        | 0 | 1 -> acc
+        | _ -> loop (i-1) (acc * i)
+    loop n 1
+
+[<EntryPoint>]
+let main argv =
+    Console.WriteLine(factorial 4);
+    Console.WriteLine(tailFactorial 4);
+    0 // return an integer exit code
